@@ -1,4 +1,4 @@
-# 🧠 PokeMentor
+# 🧠 Tekshila
 
 PokeMentor is an AI-powered Streamlit application that generates technical documentation (like README files) and adds contextual comments to source code. It also integrates with GitHub to create pull requests and performs AI-driven code quality analysis.
 

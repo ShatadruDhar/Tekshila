@@ -1,6 +1,6 @@
 # 🧠 Tekshila
 
-PokeMentor is an AI-powered Streamlit application that generates technical documentation (like README files) and adds contextual comments to source code. It also integrates with GitHub to create pull requests and performs AI-driven code quality analysis.
+Tekshila is an AI-powered Streamlit application that generates technical documentation (like README files) and adds contextual comments to source code. It also integrates with GitHub to create pull requests and performs AI-driven code quality analysis.
 
 ## 🚀 Features
 
@@ -14,8 +14,8 @@ PokeMentor is an AI-powered Streamlit application that generates technical docum
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/pokementor.git
-   cd pokementor
+   git clone https://github.com/your-username/Tekshila.git
+   cd Tekshila
    ```
 
 2. **Install dependencies**:
@@ -64,7 +64,7 @@ The app uses Gemini's large language model to analyze and understand code. Ensur
 
 ## 🔐 GitHub Integration
 
-- PokeMentor uses [PyGithub](https://pygithub.readthedocs.io/) for GitHub operations.
+- Tekshila uses [PyGithub](https://pygithub.readthedocs.io/) for GitHub operations.
 - Your personal access token should have `repo` scope to allow for PR creation.
 
 ## 📂 Project Structure

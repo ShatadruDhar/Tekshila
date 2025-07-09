@@ -1,93 +1,196 @@
-# 🧠 Tekshila
+# Tekshila - AI-Powered Code Documentation
 
-Tekshila is an AI-powered Streamlit application that generates technical documentation (like README files) and adds contextual comments to source code. It also integrates with GitHub to create pull requests and performs AI-driven code quality analysis.
+🧠 Transform your code into comprehensive documentation with AI-powered analysis
 
-## 🚀 Features
+## Overview
 
-- 📄 **README Generator**: Automatically generate detailed README files from your codebase.
-- 💬 **Code Commenting**: Add helpful and contextual comments to source code.
-- 🧪 **Code Quality Analysis**: Identify code smells, security issues, performance bottlenecks, and best practices.
-- 🔄 **GitHub Integration**: Create pull requests directly with your documentation or annotated code.
-- 🧠 Powered by **Gemini API** for intelligent and language-aware code processing.
+Tekshila is a modern web application that leverages artificial intelligence to automatically generate high-quality documentation for your codebase. Whether you need README files, inline comments, or code quality analysis, Tekshila provides intelligent insights to improve your development workflow.
 
-## 📦 Installation
+## Features
 
-1. **Clone the repository**:
+### 📝 Documentation Generation
+- **Smart README Creation**: Generate comprehensive README files from your codebase
+- **Inline Comments**: Add intelligent comments to your code
+- **Multi-language Support**: Python, JavaScript, TypeScript, Java, C++, C#, Go, Rust, PHP, Ruby, Swift, and Kotlin
+- **Batch Processing**: Upload multiple files or entire projects via ZIP
+
+### 🔗 GitHub Integration
+- **Seamless Connection**: Connect to GitHub repositories using personal access tokens
+- **Pull Request Automation**: Automatically create pull requests with generated documentation
+- **Branch Management**: Choose target branches for your documentation updates
+- **Repository Access**: Browse and select from your accessible repositories
+
+### 🔍 Code Quality Analysis
+- **AI-Powered Analysis**: Get intelligent insights into code quality issues
+- **Issue Detection**: Identify code smells, security vulnerabilities, and performance bottlenecks
+- **Best Practices**: Receive suggestions for coding standards and best practices
+- **Severity Levels**: Categorized feedback (info, warning, error)
+
+### 🎨 Modern Interface
+- **Clean Design**: Intuitive and responsive user interface
+- **Dark/Light Theme**: Toggle between themes for comfortable viewing
+- **Real-time Preview**: See generated documentation instantly
+- **Drag & Drop**: Easy file upload with drag-and-drop support
+
+## Getting Started
+
+### Prerequisites
+
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- For GitHub integration: GitHub Personal Access Token with `repo` scope
+- For AI analysis: Gemini API key
+
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/Tekshila.git
-   cd Tekshila
+   git clone https://github.com/your-username/tekshila.git
+   cd tekshila
    ```
 
-2. **Install dependencies**:
-   Make sure you have Python 3.8+ installed, then:
+2. **Install dependencies**
    ```bash
-   pip install -r requirements.txt
+   npm install
    ```
 
-3. **Configure environment variables**:
-   Create a `.env` file with the following:
-   ```env
-   GEMINI_API_KEY=your_gemini_api_key
-   GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
-   GEMINI_API_MODEL=gemini-2.0-flash
-   SONARCLOUD_TOKEN=your_sonarcloud_token
-   SONARCLOUD_ORG=your_sonarcloud_organization
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
+   ```
+   GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent
    ```
 
-## 🖥️ Usage
+4. **Run the application**
+   ```bash
+   npm run dev
+   ```
 
-Run the Streamlit app:
+5. **Access the application**
+   Open your browser and navigate to `http://localhost:3000`
 
-```bash
-streamlit run main.py
+## Usage
+
+### Generating Documentation
+
+1. **Upload Your Code**
+   - Click the upload zone or drag files directly
+   - Choose between README or Comments generation
+   - Support for individual files or ZIP archives
+
+2. **Configure Settings**
+   - Enter your project name
+   - Add custom instructions for specific requirements
+   - Select the type of documentation needed
+
+3. **Generate and Preview**
+   - Click "Generate Documentation"
+   - Review the AI-generated content in the preview panel
+   - Copy or download the results
+
+### GitHub Integration
+
+1. **Connect to GitHub**
+   - Navigate to the GitHub tab
+   - Enter your Personal Access Token
+   - Select repository and branch
+
+2. **Create Pull Request**
+   - Generate documentation first
+   - Fill in PR title and description
+   - Create pull request with generated content
+
+### Code Quality Analysis
+
+1. **Upload Single File**
+   - Use the Quality Analysis tab
+   - Upload one file for detailed analysis
+
+2. **Review Results**
+   - See categorized issues and suggestions
+   - Get recommendations for improvements
+   - Understand code quality metrics
+
+## File Structure
+
 ```
-
-### Main Tabs:
-
-1. **Generate Documentation**:
-   - Upload one or more code files (or a ZIP).
-   - Choose whether to generate a README or add comments.
-   - Provide a project name and optional instructions.
-   - Download results or push directly to GitHub.
-
-2. **GitHub Integration**:
-   - Authenticate with your GitHub token.
-   - Select a repository and branch.
-   - Create a PR with the newly generated documentation.
-
-3. **Code Quality Analysis**:
-   - Upload a file to receive detailed analysis and improvement suggestions from the AI.
-
-## 🧠 Gemini API Integration
-
-The app uses Gemini's large language model to analyze and understand code. Ensure you set up your API key and endpoint in the `.env` file.
-
-## 🔐 GitHub Integration
-
-- Tekshila uses [PyGithub](https://pygithub.readthedocs.io/) for GitHub operations.
-- Your personal access token should have `repo` scope to allow for PR creation.
-
-## 📂 Project Structure
-
-```bash
-.
-├── main.py                 # Streamlit UI logic
-├── core.py                 # Code processing and Gemini interaction
-├── code_quality.py         # AI-driven code quality analysis
-├── github_integration.py  # GitHub API integration
+tekshila/
+├── frontend/
+│   ├── index.html          # Main HTML file
+│   ├── styles.css          # Application styles
+│   ├── script.js           # Frontend JavaScript
+│   └── package.json        # Frontend dependencies
+├── backend/
+│   ├── src/
+│   │   ├── main.py         # Main backend application
+│   │   ├── core.py         # Core functionality
+│   │   └── api-bridge.py   # API integration
+│   └── utils/
+│       ├── code_quality.py    # Code quality analysis
+│       └── github_integration.py  # GitHub API integration
 ├── requirements.txt        # Python dependencies
-├── .env                    # API credentials (not committed)
-├── .gitignore
-└── LICENSE
+├── package.json           # Project metadata
+└── README.md             # This file
 ```
 
-## 📃 License
+## API Integration
 
-This project is licensed under the terms of the MIT License. See [LICENSE](./LICENSE) for details.
+### Gemini AI
+The application uses Google's Gemini API for:
+- Code analysis and understanding
+- Documentation generation
+- Quality assessment and suggestions
 
-## 🙌 Contributing
+### GitHub API
+GitHub integration provides:
+- Repository access and management
+- Branch operations
+- Pull request creation
+- File operations
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Configuration
 
-## 🙌 WebLink
-https://code-documentation--generator-pxk9mwyf8vcaj6afonyw7v.streamlit.app/#code-documentation-generator
+### Environment Variables
+- `GEMINI_API_KEY`: Your Gemini API key for AI functionality
+- `GEMINI_API_URL`: Gemini API endpoint URL
+
+### GitHub Token Setup
+1. Go to GitHub Settings > Developer settings > Personal access tokens
+2. Generate a new token with `repo` scope
+3. Use the token in the GitHub integration tab
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support, please:
+- Open an issue on GitHub
+- Check the documentation
+- Review existing issues and discussions
+
+## Roadmap
+
+- [ ] Support for more programming languages
+- [ ] Integration with other version control systems
+- [ ] Advanced code metrics and analytics
+- [ ] Team collaboration features
+- [ ] API for programmatic access
+
+## Acknowledgments
+
+- Google Gemini for AI capabilities
+- GitHub for repository integration
+- The open-source community for inspiration and tools
+
+---
+
+Made with ❤️ by the Tekshila Team

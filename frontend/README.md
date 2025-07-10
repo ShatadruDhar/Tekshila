@@ -1,6 +1,6 @@
-# PokeMentor Frontend
+# Tekshila Frontend
 
-A modern, responsive web interface for PokeMentor - the AI-powered code documentation and analysis tool.
+A modern, responsive web interface for Tekshila - the AI-powered code documentation and analysis tool.
 
 ## Features
 
@@ -46,24 +46,25 @@ A modern, responsive web interface for PokeMentor - the AI-powered code document
 
 ```
 frontend/
-├── index.html          # Main HTML file
+├── index.html          # Main HTML file (with embedded JavaScript)
+├── login.html          # GitHub OAuth login page
 ├── styles.css          # All CSS styles
-├── script.js           # Frontend JavaScript logic
-├── api-bridge.py       # Flask API bridge to Python backend
 ├── package.json        # Node.js dependencies
+├── vite.config.js      # Build configuration
 └── README.md          # This file
 ```
 
 ## API Endpoints
 
-The frontend communicates with these API endpoints:
+The frontend communicates with these backend API endpoints:
 
-- `POST /generate-docs` - Generate documentation
-- `POST /analyze-quality` - Analyze code quality
-- `POST /github/connect` - Connect to GitHub
-- `GET /github/repos` - Get repositories
-- `POST /github/branches` - Get branches
-- `POST /github/create-pr` - Create pull request
+- `GET /api/auth/user` - Get authenticated user info
+- `POST /api/auth/logout` - Logout user
+- `GET /api/github/repos` - Get user repositories
+- `GET /api/github/repos/{owner}/{repo}/branches` - Get repository branches
+- `POST /api/github/repos/{owner}/{repo}/pulls` - Create pull request
+- `POST /generate-docs` - Generate documentation (if separate)
+- `POST /analyze-quality` - Analyze code quality (if separate)
 
 ## Configuration
 
@@ -76,14 +77,7 @@ GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.
 ```
 
 ### API Configuration
-Update the `API_CONFIG` in `script.js` if your backend runs on a different port:
-
-```javascript
-const API_CONFIG = {
-    baseUrl: 'http://localhost:8000', // Change this if needed
-    // ... rest of config
-};
-```
+The API configuration is embedded in `index.html`. For local development, the application uses relative URLs that work with Vercel dev server. No additional configuration is needed.
 
 ## Features Overview
 
@@ -151,7 +145,7 @@ npm run api
 ## Deployment
 
 ### Frontend Only
-Deploy the static files (`index.html`, `styles.css`, `script.js`) to any static hosting service:
+Deploy the static files (`index.html`, `login.html`, `styles.css`) to any static hosting service:
 - Netlify
 - Vercel
 - GitHub Pages

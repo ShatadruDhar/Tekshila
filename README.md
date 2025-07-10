@@ -1,167 +1,280 @@
-# Tekshila - AI-Powered Code Documentation
+# Tekshila - AI-Powered Code Documentation Platform
 
-🧠 Transform your code into comprehensive documentation with AI-powered analysis
+🧠 **Transform your code into comprehensive documentation with AI-powered analysis and seamless GitHub integration**
 
-## Overview
+## 🌟 Overview
 
-Tekshila is a modern web application that leverages artificial intelligence to automatically generate high-quality documentation for your codebase. Whether you need README files, inline comments, or code quality analysis, Tekshila provides intelligent insights to improve your development workflow.
+Tekshila is a cutting-edge web application that revolutionizes how developers create and maintain documentation. By leveraging artificial intelligence and providing native GitHub integration, Tekshila transforms the tedious task of documentation into an automated, intelligent workflow.
 
-## Features
+## ✨ Key Features
 
-### 📝 Documentation Generation
-- **Smart README Creation**: Generate comprehensive README files from your codebase
-- **Inline Comments**: Add intelligent comments to your code
-- **Multi-language Support**: Python, JavaScript, TypeScript, Java, C++, C#, Go, Rust, PHP, Ruby, Swift, and Kotlin
-- **Batch Processing**: Upload multiple files or entire projects via ZIP
+### 📝 **Intelligent Documentation Generation**
+- **Smart README Creation**: Generate comprehensive, professional README files from your codebase
+- **Inline Code Comments**: Add intelligent, context-aware comments to your source code
+- **Multi-language Support**: Full support for 20+ programming languages including Python, JavaScript, TypeScript, Java, C++, C#, Go, Rust, PHP, Ruby, Swift, and Kotlin
+- **Batch Processing**: Upload multiple files or entire projects via ZIP archives
+- **Custom Instructions**: Provide additional context to tailor documentation to your needs
 
-### 🔗 GitHub Integration
-- **Seamless Connection**: Connect to GitHub repositories using personal access tokens
-- **Pull Request Automation**: Automatically create pull requests with generated documentation
-- **Branch Management**: Choose target branches for your documentation updates
-- **Repository Access**: Browse and select from your accessible repositories
+### 🔗 **Advanced GitHub Integration**
+- **OAuth Authentication**: Secure GitHub authentication with proper OAuth flow
+- **Repository Browser**: Interactive interface to browse, search, and filter your repositories
+- **Automatic Pull Requests**: Create pull requests with generated documentation automatically
+- **Branch Management**: Select target branches and create feature branches for documentation
+- **Repository Selection**: Visual repository picker with stats and metadata
+- **Real-time Sync**: Stay connected with your GitHub workflow
 
-### 🔍 Code Quality Analysis
-- **AI-Powered Analysis**: Get intelligent insights into code quality issues
-- **Issue Detection**: Identify code smells, security vulnerabilities, and performance bottlenecks
-- **Best Practices**: Receive suggestions for coding standards and best practices
-- **Severity Levels**: Categorized feedback (info, warning, error)
+### 🔍 **AI-Powered Code Quality Analysis**
+- **Comprehensive Analysis**: Deep code quality assessment with AI insights
+- **Issue Detection**: Identify code smells, security vulnerabilities, and performance issues
+- **Best Practice Suggestions**: Receive actionable recommendations for improvement
+- **Severity Classification**: Issues categorized by severity (error, warning, info)
+- **Metrics Dashboard**: Visual display of quality metrics and scores
+- **Detailed Reports**: Comprehensive analysis with line-by-line feedback
 
-### 🎨 Modern Interface
-- **Clean Design**: Intuitive and responsive user interface
-- **Dark/Light Theme**: Toggle between themes for comfortable viewing
-- **Real-time Preview**: See generated documentation instantly
-- **Drag & Drop**: Easy file upload with drag-and-drop support
+### 🎨 **Modern User Experience**
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Dark/Light Themes**: Toggle between themes with persistent preference
+- **Real-time Preview**: Live preview of generated documentation with Markdown rendering
+- **Drag & Drop Interface**: Intuitive file upload with visual feedback
+- **Loading States**: Professional loading indicators and progress feedback
+- **Error Handling**: Comprehensive error states with retry functionality
+- **Accessibility**: WCAG compliant with keyboard navigation and screen reader support
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- For GitHub integration: GitHub Personal Access Token with `repo` scope
-- For AI analysis: Gemini API key
+- **Web Browser**: Modern browser with ES2020 support (Chrome 80+, Firefox 74+, Safari 13+, Edge 80+)
+- **GitHub Account**: For repository integration and authentication
+- **GitHub OAuth App**: Required for secure authentication
+- **Development Environment**: Node.js 18+ for local development
 
-### Installation
+### Quick Setup
 
-1. **Clone the repository**
+1. **Clone the Repository**
    ```bash
    git clone https://github.com/your-username/tekshila.git
    cd tekshila
    ```
 
-2. **Install dependencies**
+2. **Configure Environment Variables**
+   ```bash
+   # Copy environment template
+   cp .env.example .env
+   
+   # Edit .env with your GitHub OAuth credentials
+   GITHUB_CLIENT_ID=your_github_client_id
+   GITHUB_CLIENT_SECRET=your_github_client_secret
+   JWT_SECRET=your_jwt_secret
+   ```
+
+3. **Install Dependencies**
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
-   Create a `.env` file in the root directory:
-   ```
-   GEMINI_API_KEY=your_gemini_api_key_here
-   GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent
-   ```
-
-4. **Run the application**
+4. **Start Development Server**
    ```bash
    npm run dev
    ```
 
-5. **Access the application**
-   Open your browser and navigate to `http://localhost:3000`
+## 🏗️ Architecture
 
-## Usage
+### Frontend Architecture
+- **Modern Vanilla JavaScript**: Class-based modular architecture with ES6+ features
+- **State Management**: Centralized application state with event-driven updates
+- **Component System**: Organized managers for different application concerns
+- **Responsive CSS**: Mobile-first design with CSS Grid and Flexbox
+- **Progressive Enhancement**: Works without JavaScript for basic functionality
 
-### Generating Documentation
+### Backend Architecture
+- **Serverless Functions**: Vercel-optimized Python serverless functions
+- **API Gateway**: RESTful API design with proper error handling
+- **OAuth Integration**: Secure GitHub authentication flow
+- **Modular Design**: Separation of concerns with dedicated utility modules
 
-1. **Upload Your Code**
-   - Click the upload zone or drag files directly
-   - Choose between README or Comments generation
-   - Support for individual files or ZIP archives
+### Key Components
+```
+Application Structure:
+├── AuthManager          # GitHub OAuth authentication
+├── ThemeManager         # Dark/light theme handling
+├── TabManager           # Navigation and tab switching
+├── FileUploadManager    # File handling and validation
+├── GitHubRepositoryManager  # Repository operations
+├── DocumentationManager     # AI documentation generation
+├── QualityAnalysisManager  # Code quality assessment
+└── Utils               # Shared utility functions
+```
 
-2. **Configure Settings**
-   - Enter your project name
-   - Add custom instructions for specific requirements
-   - Select the type of documentation needed
+## 🚀 Deployment
 
-3. **Generate and Preview**
+### Vercel Deployment (Recommended)
+
+1. **Connect Repository**
+   ```bash
+   # Link to Vercel
+   vercel link
+   
+   # Set environment variables
+   vercel env add GITHUB_CLIENT_ID
+   vercel env add GITHUB_CLIENT_SECRET
+   vercel env add JWT_SECRET
+   ```
+
+2. **Deploy**
+   ```bash
+   # Deploy to production
+   vercel --prod
+   ```
+
+### Manual Deployment
+
+1. **Build the Application**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy Static Files**
+   - Upload `frontend/` directory to your web server
+   - Configure serverless functions for `/api/` endpoints
+
+## 📖 Usage Guide
+
+### 🔧 **Initial Setup**
+
+1. **GitHub OAuth Setup**
+   - Create a GitHub OAuth App in your GitHub Developer Settings
+   - Set Authorization callback URL to `https://yourdomain.com/auth/callback`
+   - Note the Client ID and Client Secret
+
+2. **First Login**
+   - Navigate to the application
+   - Click "Continue with GitHub"
+   - Authorize the application
+   - You'll be redirected to the main dashboard
+
+### 📝 **Documentation Generation Workflow**
+
+1. **Upload Code Files**
+   - Drag and drop files or click to browse
+   - Supports individual files or ZIP archives
+   - Real-time file validation and preview
+
+2. **Configure Generation**
+   - Choose between README or inline comments
+   - Enter project name (required for README)
+   - Add custom instructions for specific needs
+
+3. **Generate and Review**
    - Click "Generate Documentation"
-   - Review the AI-generated content in the preview panel
-   - Copy or download the results
+   - Review AI-generated content in live preview
+   - Copy to clipboard or download as file
 
-### GitHub Integration
+### 🔗 **GitHub Integration Workflow**
 
-1. **Connect to GitHub**
-   - Navigate to the GitHub tab
-   - Enter your Personal Access Token
-   - Select repository and branch
+1. **Repository Selection**
+   - Browse your repositories with search and filters
+   - Click on any repository to select it
+   - View repository statistics and metadata
 
-2. **Create Pull Request**
-   - Generate documentation first
-   - Fill in PR title and description
-   - Create pull request with generated content
+2. **Pull Request Creation**
+   - Ensure documentation is generated first
+   - Select target branch from dropdown
+   - Fill in PR title, description, and commit message
+   - Click "Create Pull Request" to auto-create
 
-### Code Quality Analysis
+### 🔍 **Code Quality Analysis**
 
-1. **Upload Single File**
-   - Use the Quality Analysis tab
-   - Upload one file for detailed analysis
+1. **Single File Analysis**
+   - Navigate to Quality Analysis tab
+   - Upload one file for detailed review
+   - Click "Analyze Code Quality"
 
 2. **Review Results**
-   - See categorized issues and suggestions
-   - Get recommendations for improvements
-   - Understand code quality metrics
+   - View quality metrics in visual dashboard
+   - See categorized issues with severity levels
+   - Get actionable improvement suggestions
 
-## File Structure
-
-```
-tekshila/
-├── frontend/
-│   ├── index.html          # Main HTML file
-│   ├── styles.css          # Application styles
-│   ├── script.js           # Frontend JavaScript
-│   └── package.json        # Frontend dependencies
-├── backend/
-│   ├── src/
-│   │   ├── main.py         # Main backend application
-│   │   ├── core.py         # Core functionality
-│   │   └── api-bridge.py   # API integration
-│   └── utils/
-│       ├── code_quality.py    # Code quality analysis
-│       └── github_integration.py  # GitHub API integration
-├── requirements.txt        # Python dependencies
-├── package.json           # Project metadata
-└── README.md             # This file
-```
-
-## API Integration
-
-### Gemini AI
-The application uses Google's Gemini API for:
-- Code analysis and understanding
-- Documentation generation
-- Quality assessment and suggestions
-
-### GitHub API
-GitHub integration provides:
-- Repository access and management
-- Branch operations
-- Pull request creation
-- File operations
-
-## Configuration
+## 🔧 Configuration Options
 
 ### Environment Variables
-- `GEMINI_API_KEY`: Your Gemini API key for AI functionality
-- `GEMINI_API_URL`: Gemini API endpoint URL
+```bash
+# Required for GitHub Integration
+GITHUB_CLIENT_ID=your_github_oauth_client_id
+GITHUB_CLIENT_SECRET=your_github_oauth_client_secret
 
-### GitHub Token Setup
-1. Go to GitHub Settings > Developer settings > Personal access tokens
-2. Generate a new token with `repo` scope
-3. Use the token in the GitHub integration tab
+# Required for JWT tokens
+JWT_SECRET=your_jwt_secret_key
 
-## Contributing
+# Optional: AI API configurations
+GEMINI_API_KEY=your_gemini_api_key
+OPENAI_API_KEY=your_openai_api_key
+```
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+### Feature Flags
+```javascript
+// In your environment or config
+FEATURES = {
+    GITHUB_INTEGRATION: true,
+    AI_ANALYSIS: true,
+    QUALITY_METRICS: true,
+    DARK_MODE: true
+}
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how to get started:
+
+1. **Fork and Clone**
+   ```bash
+   git clone https://github.com/your-username/tekshila.git
+   cd tekshila
+   ```
+
+2. **Create Feature Branch**
+   ```bash
+   git checkout -b feature/amazing-new-feature
+   ```
+
+3. **Make Changes**
+   - Follow the existing code style
+   - Add tests for new functionality
+   - Update documentation as needed
+
+4. **Submit Pull Request**
+   ```bash
+   git push origin feature/amazing-new-feature
+   # Create PR through GitHub interface
+   ```
+
+### Development Guidelines
+- **Code Style**: Use ESLint and Prettier configurations
+- **Commits**: Follow conventional commit messages
+- **Testing**: Add unit tests for new features
+- **Documentation**: Update README and inline docs
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Issues**: [GitHub Issues](https://github.com/your-username/tekshila/issues)
+- **Documentation**: [Wiki](https://github.com/your-username/tekshila/wiki)
+- **Community**: [Discussions](https://github.com/your-username/tekshila/discussions)
+
+## 🙏 Acknowledgments
+
+- **Google Gemini**: AI-powered code analysis
+- **GitHub API**: Repository integration
+- **Vercel**: Hosting and deployment platform
+- **Font Awesome**: Icon library
+- **Inter Font**: Typography
+
+---
+
+**Built with ❤️ by the Tekshila Team**
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request

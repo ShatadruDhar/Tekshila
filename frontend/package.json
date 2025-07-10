@@ -1,27 +1,30 @@
 {
-  "name": "pokementor-frontend",
+  "name": "tekshila",
   "version": "1.0.0",
-  "description": "Modern web frontend for PokeMentor - AI-powered code documentation tool",
-  "main": "index.html",
+  "description": "AI-powered code documentation and analysis tool",
+  "main": "frontend/index.html",
   "scripts": {
-    "dev": "python api-bridge.py & npx http-server . -p 3000 -c-1 --cors",
-    "start": "npx http-server . -p 3000 -c-1 --cors",
-    "api": "python api-bridge.py"
+    "dev": "vercel dev",
+    "build": "echo 'Static files ready'",
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "keywords": [
     "ai",
     "documentation",
     "code-analysis",
     "github",
-    "frontend"
+    "oauth",
+    "vercel"
   ],
-  "author": "PokeMentor Team",
+  "author": "Tekshila Team",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "@vercel/node": "^3.0.0",
+    "vercel": "^32.0.0"
   },
-  "dependencies": {
-    "flask": "^2.3.3",
-    "flask-cors": "^4.0.0"
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

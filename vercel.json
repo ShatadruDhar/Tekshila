@@ -1,67 +1,16 @@
 {
-  "version": 2,
-  "name": "tekshila",
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "python3.9"
-    }
-  },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/auth/github/login",
-      "dest": "/api/auth/github.py"
+      "source": "/api/auth/(.*)",
+      "destination": "/api/auth-github.py"
     },
     {
-      "src": "/api/auth/github/callback", 
-      "dest": "/api/auth/github.py"
+      "source": "/api/github/repos/(.*)",
+      "destination": "/api/github-repos.py"
     },
     {
-      "src": "/api/auth/user",
-      "dest": "/api/auth/github.py"
-    },
-    {
-      "src": "/api/auth/logout",
-      "dest": "/api/auth/github.py"
-    },
-    {
-      "src": "/api/generate-docs",
-      "dest": "/api/generate-docs.py"
-    },
-    {
-      "src": "/api/config",
-      "dest": "/api/config.py"
-    },
-    {
-      "src": "/api/github/repos",
-      "dest": "/api/github/repos.py"
-    },
-    {
-      "src": "/api/github/repos/([^/]+)/([^/]+)/branches",
-      "dest": "/api/github/repos.py"
-    },
-    {
-      "src": "/api/github/repos/([^/]+)/([^/]+)/pulls", 
-      "dest": "/api/github/repos.py"
-    },
-    {
-      "src": "/api/github/repos/([^/]+)/([^/]+)/push",
-      "dest": "/api/github/push.py"
-    },
-    {
-      "src": "/login.html",
-      "dest": "/frontend/login.html"
-    },
-    {
-      "src": "/theme-test.html",
-      "dest": "/frontend/theme-test.html"
-    },
-    {
-      "src": "/styles.css",
-      "dest": "/frontend/styles.css"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/index.html"
+      "source": "/api/github/push",
+      "destination": "/api/github-push.py"
     }
   ]
 }

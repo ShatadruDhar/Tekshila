@@ -1,0 +1,23 @@
+# Ignore development files
+.devcontainer/
+backend/
+frontend/
+.git/
+.gitignore
+deploy.sh
+README.md
+LICENSE
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env*
+
+# Cache files
+.vercel/
+.next/
+.cache/

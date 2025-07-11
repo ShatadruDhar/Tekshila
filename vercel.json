@@ -1,16 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/auth/(.*)",
-      "destination": "/api/auth-github.py"
-    },
-    {
-      "source": "/api/github/repos/(.*)",
-      "destination": "/api/github-repos.py"
-    },
-    {
-      "source": "/api/github/push",
-      "destination": "/api/github-push.py"
-    }
-  ]
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": "pip install -r requirements.txt"
 }

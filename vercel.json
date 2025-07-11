@@ -13,12 +13,44 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "src": "/api/auth/github/login",
+      "dest": "/api/auth/github.py"
     },
     {
-      "src": "/auth/(.*)",
-      "dest": "/api/auth/$1"
+      "src": "/api/auth/github/callback",
+      "dest": "/api/auth/github.py"
+    },
+    {
+      "src": "/api/auth/user",
+      "dest": "/api/auth/github.py"
+    },
+    {
+      "src": "/api/auth/logout",
+      "dest": "/api/auth/github.py"
+    },
+    {
+      "src": "/api/generate-docs",
+      "dest": "/api/generate-docs.py"
+    },
+    {
+      "src": "/api/config",
+      "dest": "/api/config.py"
+    },
+    {
+      "src": "/api/github/repos",
+      "dest": "/api/github/repos.py"
+    },
+    {
+      "src": "/api/github/repos/([^/]+)/([^/]+)/branches",
+      "dest": "/api/github/repos.py"
+    },
+    {
+      "src": "/api/github/repos/([^/]+)/([^/]+)/pulls",
+      "dest": "/api/github/repos.py"
+    },
+    {
+      "src": "/api/github/repos/([^/]+)/([^/]+)/push",
+      "dest": "/api/github/push.py"
     },
     {
       "src": "/(.*)",

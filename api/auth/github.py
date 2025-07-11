@@ -50,7 +50,7 @@ class handler(BaseHTTPRequestHandler):
             params = {
                 'client_id': client_id,
                 'redirect_uri': f"https://{self.headers.get('host')}/api/auth/github/callback",
-                'scope': 'repo,user:email',
+                'scope': 'repo user:email read:user',  # Full repo access for push/pull
                 'state': state,
                 'allow_signup': 'true'
             }
